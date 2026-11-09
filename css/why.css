@@ -1,0 +1,43 @@
+/* Why */
+.why-grid {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.benefits {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--line);
+}
+
+.benefit {
+  padding: 36px 32px 36px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.benefit:nth-child(odd) {
+  border-right: 1px solid var(--line);
+}
+
+.benefit:nth-child(even) {
+  padding-left: 36px;
+  padding-right: 0;
+}
+
+.benefit svg {
+  color: var(--brand);
+}
+
+.benefit h3 {
+  margin-top: 20px;
+  font-size: 20px;
+  letter-spacing: -.02em;
+}
+
+.benefit p {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 15px;
+}

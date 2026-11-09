@@ -1,0 +1,89 @@
+/* FAQ */
+.faq-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.faq-list {
+  border-top: 1px solid var(--line);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-q {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 0;
+  text-align: left;
+  font-size: 17.5px;
+  font-weight: 600;
+  letter-spacing: -.01em;
+}
+
+.faq-q:hover {
+  color: var(--brand);
+}
+
+.faq-q .pm {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  flex: none;
+  transition: background-color .3s, color .3s;
+}
+
+.faq-q .pm::before,
+.faq-q .pm::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 11px;
+  height: 1.6px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+  transition: transform .3s var(--ease);
+}
+
+.faq-q .pm::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.faq-item.open .pm {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+}
+
+.faq-item.open .pm::after {
+  transform: translate(-50%, -50%);
+}
+
+.faq-a {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .35s var(--ease);
+}
+
+.faq-a>div {
+  overflow: hidden;
+}
+
+.faq-item.open .faq-a {
+  grid-template-rows: 1fr;
+}
+
+.faq-a p {
+  padding-bottom: 24px;
+  color: var(--muted);
+  max-width: 60ch;
+}

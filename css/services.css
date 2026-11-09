@@ -1,0 +1,69 @@
+/* Services */
+.services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  padding: 36px;
+  box-shadow: 1px 0 0 var(--line), 0 1px 0 var(--line);
+  transition: background-color .3s;
+}
+
+.service:hover {
+  background: #FCFBF8;
+}
+
+.service .ic {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: var(--mint);
+  color: var(--brand);
+  transition: background-color .3s, color .3s, transform .3s var(--ease);
+}
+
+.service:hover .ic {
+  background: var(--brand);
+  color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.service h3 {
+  margin-top: 26px;
+  font-size: 19px;
+  letter-spacing: -.02em;
+}
+
+.service p {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.service a {
+  margin-top: auto;
+  padding-top: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 14.5px;
+  color: var(--brand);
+}
+
+.service a svg {
+  transition: transform .25s var(--ease);
+}
+
+.service:hover a svg {
+  transform: translateX(4px);
+}

@@ -1,0 +1,48 @@
+/* Steps */
+.how {
+  background: var(--surface);
+  border-block: 1px solid var(--line);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  position: relative;
+  padding: 0;
+  list-style: none;
+}
+
+.steps::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  right: 10%;
+  border-top: 1px dashed rgba(22, 32, 27, .2);
+}
+
+.step-num {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--brand);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.step h3 {
+  margin-top: 24px;
+  font-size: 20px;
+  letter-spacing: -.02em;
+}
+
+.step p {
+  margin-top: 8px;
+  color: var(--muted);
+  max-width: 32ch;
+}
