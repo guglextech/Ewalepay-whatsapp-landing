@@ -1,0 +1,143 @@
+/* Nav */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: 16px 0 14px;
+  background: var(--bg);
+}
+
+.nav-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  padding: 0 8px 0 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .86);
+  border: 1px solid rgba(22, 32, 27, .08);
+  box-shadow: 0 1px 2px rgba(16, 24, 20, .04);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  transition: box-shadow .35s var(--ease), border-color .35s;
+}
+
+.nav.scrolled .nav-bar {
+  border-color: rgba(22, 32, 27, .1);
+  box-shadow: 0 6px 16px -12px rgba(16, 40, 30, .28), 0 1px 2px rgba(16, 24, 20, .04);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -.03em;
+}
+
+.brand svg {
+  width: 30px;
+  height: 30px;
+}
+
+.brand b {
+  color: var(--brand);
+  font-weight: 800;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.nav-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 999px;
+  background: var(--mint);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition: transform .4s var(--ease), width .4s var(--ease), height .4s var(--ease), opacity .25s;
+}
+
+.nav-links a {
+  position: relative;
+  z-index: 1;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  white-space: nowrap;
+  transition: color .2s, background-color .2s;
+}
+
+.nav-links a:hover {
+  color: var(--ink);
+}
+
+.nav-links a.active {
+  color: var(--brand);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav .btn-primary {
+  box-shadow: none;
+}
+
+.nav-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: background-color .2s, border-color .2s, color .2s;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 16px;
+  height: 1.5px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform .3s var(--ease);
+}
+
+.nav.open .nav-toggle {
+  background: var(--mint);
+  border-color: transparent;
+  color: var(--brand);
+}
+
+.nav.open .nav-toggle span:first-child {
+  transform: translateY(3.25px) rotate(45deg);
+}
+
+.nav.open .nav-toggle span:last-child {
+  transform: translateY(-3.25px) rotate(-45deg);
+}
+
+@media (min-width: 961px) {
+  .nav-links {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

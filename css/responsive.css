@@ -1,0 +1,143 @@
+@media (max-width: 960px) {
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .nav-indicator {
+    display: none;
+  }
+
+  .nav-links {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 10px);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    padding: 8px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, .97);
+    border: 1px solid var(--line);
+    box-shadow: 0 10px 20px -14px rgba(16, 40, 30, .28);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    pointer-events: none;
+    transition: opacity .25s var(--ease), transform .25s var(--ease), visibility .25s;
+  }
+
+  .nav.open .nav-links {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .nav-links a {
+    padding: 13px 16px;
+    border-radius: 14px;
+    font-size: 15.5px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    background: var(--mint);
+    color: var(--brand);
+  }
+
+  .hero-grid,
+  .why-grid,
+  .faq-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .services {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .services,
+  .benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .benefit,
+  .benefit:nth-child(even) {
+    padding: 28px 0;
+    border-right: 0 !important;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .steps::before {
+    top: 22px;
+    bottom: 22px;
+    left: 22px;
+    right: auto;
+    border-top: 0;
+    border-left: 1px dashed rgba(22, 32, 27, .2);
+  }
+
+  .step {
+    padding-left: 68px;
+    position: relative;
+  }
+
+  .step-num {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .step h3 {
+    margin-top: 8px;
+  }
+
+  .hero-ctas .btn {
+    width: 100%;
+  }
+
+  .chip {
+    display: none;
+  }
+
+  .phone {
+    height: 580px;
+  }
+
+  .nav .btn-sm .label {
+    display: none;
+  }
+
+  .nav .btn-sm {
+    width: 42px;
+    padding: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

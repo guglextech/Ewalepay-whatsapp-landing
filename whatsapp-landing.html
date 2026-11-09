@@ -1,246 +1,62 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ewalepay is now on WhatsApp — Pay, top up and more in one chat</title>
-  <meta name="description" content="Ewalepay is now live on WhatsApp. Buy airtime and data, pay bills and make payments in a simple chat. No app to download." />
+  <meta name="description"
+    content="Ewalepay is now live on WhatsApp. Buy airtime and data, pay bills and make payments in a simple chat. No app to download." />
   <meta name="theme-color" content="#0E4F3B" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230E4F3B'/%3E%3Cpath d='M11 10v12M11 10h10M11 16h7M11 22h5' stroke='%23fff' stroke-width='2.6' stroke-linecap='round'/%3E%3Ccircle cx='22' cy='22' r='2.6' fill='%23C8F169'/%3E%3C/svg%3E" />
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230E4F3B'/%3E%3Cpath d='M11 10v12M11 10h10M11 16h7M11 22h5' stroke='%23fff' stroke-width='2.6' stroke-linecap='round'/%3E%3Ccircle cx='22' cy='22' r='2.6' fill='%23C8F169'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
 
-  <style>
-    :root {
-      --bg: #FAF8F3;
-      --surface: #FFFFFF;
-      --ink: #16201B;
-      --muted: #5B6560;
-      --brand: #0E4F3B;
-      --brand-dark: #08332A;
-      --accent: #C8F169;
-      --mint: #E3F4EA;
-      --line: rgba(22, 32, 27, .1);
-      --wa: #00A884;
-      --wa-teal: #008069;
-      --wa-bg: #EFE7DE;
-      --wa-out: #D9FDD3;
-      --shadow: 0 12px 32px -14px rgba(16, 40, 30, .2), 0 2px 6px rgba(16, 24, 20, .04);
-      --shadow-lg: 0 50px 100px -40px rgba(8, 40, 28, .45), 0 18px 40px -20px rgba(8, 40, 28, .25);
-      --ease: cubic-bezier(.22, .61, .36, 1);
-      --font: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    }
 
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; font-family: var(--font); color: var(--ink); background: var(--bg); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-    h1, h2, h3, p { margin: 0; }
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; padding: 0; }
-    svg { flex-shrink: 0; }
-    :focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; border-radius: 8px; }
-    .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
-    section[id] { scroll-margin-top: 80px; }
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+  <link rel="stylesheet" href="css/services.css" />
+  <link rel="stylesheet" href="css/steps.css" />
+  <link rel="stylesheet" href="css/why.css" />
+  <link rel="stylesheet" href="css/faq.css" />
+  <link rel="stylesheet" href="css/cta.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
 
-    /* Buttons */
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; height: 52px; padding: 0 26px; border-radius: 999px; font-weight: 600; font-size: 15.5px; white-space: nowrap; transition: transform .2s var(--ease), background-color .2s, box-shadow .2s, border-color .2s; }
-    .btn svg { width: 19px; height: 19px; }
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary { background: var(--brand); color: #fff; box-shadow: 0 10px 24px -10px rgba(14, 79, 59, .7); }
-    .btn-primary:hover { background: var(--brand-dark); }
-    .btn-ghost { background: var(--surface); border: 1px solid var(--line); }
-    .btn-ghost:hover { border-color: rgba(22, 32, 27, .3); }
-    .btn-lime { background: var(--accent); color: var(--brand-dark); }
-    .btn-sm { height: 42px; padding: 0 18px; font-size: 14px; }
-
-    /* Nav */
-    .nav { position: sticky; top: 0; z-index: 50; height: 72px; border-bottom: 1px solid transparent; transition: background-color .3s, border-color .3s; }
-    .nav.scrolled { background: rgba(250, 248, 243, .85); backdrop-filter: saturate(180%) blur(14px); -webkit-backdrop-filter: saturate(180%) blur(14px); border-color: var(--line); }
-    .nav-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; font-size: 20px; letter-spacing: -.03em; }
-    .brand svg { width: 32px; height: 32px; }
-    .brand b { color: var(--brand); font-weight: 800; }
-    .nav-links { display: flex; gap: 32px; font-size: 14.5px; font-weight: 500; color: var(--muted); }
-    .nav-links a:hover { color: var(--ink); }
-
-    /* Hero */
-    .hero { position: relative; padding: 56px 0 104px; overflow: hidden; }
-    .hero::before { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 64px 64px; -webkit-mask-image: radial-gradient(ellipse 55% 65% at 75% 40%, #000 10%, transparent 70%); mask-image: radial-gradient(ellipse 55% 65% at 75% 40%, #000 10%, transparent 70%); opacity: .6; }
-    .hero-grid { position: relative; display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: center; }
-    .launch-pill { display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 6px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-size: 13.5px; font-weight: 600; box-shadow: 0 1px 2px rgba(0, 0, 0, .04); }
-    .launch-pill .tag { padding: 3px 10px; border-radius: 999px; background: var(--brand); color: #fff; font-size: 12px; letter-spacing: .02em; }
-    .live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--wa); box-shadow: 0 0 0 0 rgba(0, 168, 132, .5); animation: pulse 2s infinite; }
-    @keyframes pulse { 70% { box-shadow: 0 0 0 8px rgba(0, 168, 132, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 168, 132, 0); } }
-    .hero h1 { margin-top: 24px; font-size: clamp(2.6rem, 5.4vw, 4.4rem); line-height: 1.03; letter-spacing: -.045em; font-weight: 800; }
-    .hero h1 span { color: var(--brand); background: linear-gradient(transparent 70%, rgba(200, 241, 105, .8) 70%, rgba(200, 241, 105, .8) 92%, transparent 92%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-    .lead { margin-top: 22px; font-size: clamp(1.05rem, 1.4vw, 1.2rem); color: var(--muted); max-width: 540px; }
-    .hero-ctas { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px; }
-    .hero-trust { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px 22px; padding: 0; list-style: none; font-size: 14px; font-weight: 500; }
-    .hero-trust li { display: inline-flex; align-items: center; gap: 8px; }
-    .hero-trust svg { width: 17px; height: 17px; color: var(--brand); }
-
-    /* Phone */
-    .hero-visual { position: relative; display: flex; justify-content: center; }
-    .hero-visual::before { content: ""; position: absolute; width: 115%; aspect-ratio: 1; top: 50%; left: 50%; transform: translate(-50%, -50%); background: radial-gradient(closest-side, var(--mint), transparent 70%); }
-    .phone { position: relative; width: min(320px, 86vw); height: 640px; padding: 11px; border-radius: 54px; background: linear-gradient(145deg, #2A302D, #0D110F 45%, #1C211E); box-shadow: var(--shadow-lg), inset 0 0 0 1.5px rgba(255, 255, 255, .08); }
-    .screen { position: relative; height: 100%; border-radius: 44px; overflow: hidden; display: flex; flex-direction: column; background: var(--wa-bg); }
-    .status { height: 44px; flex: none; display: flex; align-items: center; justify-content: space-between; padding: 0 28px; font-size: 14px; font-weight: 600; background: #F6F6F6; position: relative; }
-    .island { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 96px; height: 27px; border-radius: 20px; background: #050505; }
-    .wa-head { flex: none; display: flex; align-items: center; gap: 10px; padding: 6px 14px 9px 10px; background: #F6F6F6; border-bottom: 1px solid rgba(0, 0, 0, .06); }
-    .wa-head .back { color: var(--wa-teal); }
-    .avatar { width: 36px; height: 36px; border-radius: 50%; overflow: hidden; }
-    .wa-name { flex: 1; line-height: 1.2; }
-    .wa-name strong { display: block; font-size: 15px; }
-    .wa-name small { font-size: 12px; color: #667781; }
-    .wa-name small.typing { color: var(--wa-teal); }
-    .wa-head .icons { display: flex; gap: 16px; color: var(--wa-teal); }
-    .chat { flex: 1; overflow-y: auto; padding: 10px 12px; display: flex; flex-direction: column; gap: 3px; font-size: 13.5px; line-height: 1.4; color: #111B21; scrollbar-width: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cg fill='none' stroke='%23000' stroke-opacity='.045' stroke-width='1.2'%3E%3Ccircle cx='15' cy='15' r='5'/%3E%3Cpath d='M55 9h14v10H55zM9 58l7 7 7-7M38 38l5-7 5 7z'/%3E%3C/g%3E%3C/svg%3E"); }
-    .chat::-webkit-scrollbar { display: none; }
-    .day { align-self: center; margin: 2px 0 8px; padding: 4px 10px; border-radius: 8px; background: #fff; font-size: 11.5px; color: #54656F; box-shadow: 0 1px .5px rgba(11, 20, 26, .13); }
-    .msg { position: relative; max-width: 84%; padding: 6px 8px 7px 9px; border-radius: 8px; box-shadow: 0 1px .5px rgba(11, 20, 26, .13); animation: msgIn .3s var(--ease) both; }
-    .msg.in { align-self: flex-start; background: #fff; }
-    .msg.out { align-self: flex-end; background: var(--wa-out); }
-    .msg .meta { float: right; margin: 7px 0 -5px 12px; font-size: 10.5px; color: #667781; display: inline-flex; gap: 3px; align-items: center; }
-    .msg .ticks { color: #53BDEB; display: inline-flex; }
-    .msg.typing { display: inline-flex; gap: 4px; padding: 11px 13px; }
-    .msg.typing i { width: 7px; height: 7px; border-radius: 50%; background: #9AA6AC; animation: blink 1.2s infinite; }
-    .msg.typing i:nth-child(2) { animation-delay: .15s; }
-    .msg.typing i:nth-child(3) { animation-delay: .3s; }
-    .opts { align-self: flex-start; width: 84%; display: flex; flex-direction: column; gap: 2px; animation: msgIn .35s var(--ease) both; }
-    .opts span { padding: 9px; border-radius: 8px; background: #fff; text-align: center; color: var(--wa-teal); font-weight: 600; font-size: 13px; box-shadow: 0 1px .5px rgba(11, 20, 26, .13); }
-    .opts span.chosen { background: #E7F6EF; }
-    @keyframes msgIn { from { opacity: 0; transform: translateY(6px); } }
-    @keyframes blink { 30% { opacity: 1; transform: translateY(-3px); } 0%, 60%, 100% { opacity: .35; } }
-    .wa-input { flex: none; display: flex; align-items: center; gap: 10px; padding: 8px 12px 24px; background: #F6F6F6; color: var(--wa-teal); }
-    .wa-input div { flex: 1; height: 34px; border-radius: 18px; background: #fff; padding: 0 14px; display: flex; align-items: center; font-size: 13.5px; color: #8696A0; }
-
-    .chip { position: absolute; z-index: 2; display: flex; align-items: center; gap: 10px; padding: 10px 14px 10px 10px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); font-size: 12.5px; line-height: 1.3; animation: floaty 7s ease-in-out infinite; }
-    .chip strong { display: block; font-size: 13.5px; }
-    .chip span { color: var(--muted); }
-    .chip .ic { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: var(--mint); color: var(--brand); }
-    .chip-a { top: 14%; left: -2%; }
-    .chip-b { bottom: 16%; right: -4%; animation-delay: -3.5s; }
-    @keyframes floaty { 50% { transform: translateY(-8px); } }
-
-    /* Sections */
-    .section { padding: clamp(80px, 10vw, 128px) 0; }
-    .kicker { font-size: 13px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--brand); }
-    .h2 { margin-top: 14px; font-size: clamp(2rem, 3.8vw, 3rem); line-height: 1.1; letter-spacing: -.035em; font-weight: 700; }
-    .sub { margin-top: 16px; color: var(--muted); font-size: 1.08rem; max-width: 560px; }
-    .head { margin-bottom: 56px; }
-    .head.center { text-align: center; display: flex; flex-direction: column; align-items: center; }
-
-    /* Services */
-    .services { display: grid; grid-template-columns: repeat(3, 1fr); background: var(--surface); border: 1px solid var(--line); border-radius: 28px; overflow: hidden; }
-    .service { display: flex; flex-direction: column; padding: 36px; box-shadow: 1px 0 0 var(--line), 0 1px 0 var(--line); transition: background-color .3s; }
-    .service:hover { background: #FCFBF8; }
-    .service .ic { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; background: var(--mint); color: var(--brand); transition: background-color .3s, color .3s, transform .3s var(--ease); }
-    .service:hover .ic { background: var(--brand); color: var(--accent); transform: translateY(-3px); }
-    .service h3 { margin-top: 26px; font-size: 19px; letter-spacing: -.02em; }
-    .service p { margin-top: 8px; color: var(--muted); font-size: 15px; }
-    .service a { margin-top: auto; padding-top: 24px; display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 14.5px; color: var(--brand); }
-    .service a svg { transition: transform .25s var(--ease); }
-    .service:hover a svg { transform: translateX(4px); }
-
-    /* Steps */
-    .how { background: var(--surface); border-block: 1px solid var(--line); }
-    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; position: relative; padding: 0; list-style: none; }
-    .steps::before { content: ""; position: absolute; top: 22px; left: 22px; right: 10%; border-top: 1px dashed rgba(22, 32, 27, .2); }
-    .step-num { position: relative; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--brand); color: #fff; font-size: 13px; font-weight: 700; }
-    .step h3 { margin-top: 24px; font-size: 20px; letter-spacing: -.02em; }
-    .step p { margin-top: 8px; color: var(--muted); max-width: 32ch; }
-
-    /* Why */
-    .why-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 80px; align-items: start; }
-    .benefits { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
-    .benefit { padding: 36px 32px 36px 0; border-bottom: 1px solid var(--line); }
-    .benefit:nth-child(odd) { border-right: 1px solid var(--line); }
-    .benefit:nth-child(even) { padding-left: 36px; padding-right: 0; }
-    .benefit svg { color: var(--brand); }
-    .benefit h3 { margin-top: 20px; font-size: 20px; letter-spacing: -.02em; }
-    .benefit p { margin-top: 8px; color: var(--muted); font-size: 15px; }
-
-    /* FAQ */
-    .faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 80px; align-items: start; }
-    .faq-list { border-top: 1px solid var(--line); }
-    .faq-item { border-bottom: 1px solid var(--line); }
-    .faq-q { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 22px 0; text-align: left; font-size: 17.5px; font-weight: 600; letter-spacing: -.01em; }
-    .faq-q:hover { color: var(--brand); }
-    .faq-q .pm { position: relative; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line); flex: none; transition: background-color .3s, color .3s; }
-    .faq-q .pm::before, .faq-q .pm::after { content: ""; position: absolute; top: 50%; left: 50%; width: 11px; height: 1.6px; background: currentColor; transform: translate(-50%, -50%); transition: transform .3s var(--ease); }
-    .faq-q .pm::after { transform: translate(-50%, -50%) rotate(90deg); }
-    .faq-item.open .pm { background: var(--brand); color: #fff; border-color: var(--brand); }
-    .faq-item.open .pm::after { transform: translate(-50%, -50%); }
-    .faq-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s var(--ease); }
-    .faq-a > div { overflow: hidden; }
-    .faq-item.open .faq-a { grid-template-rows: 1fr; }
-    .faq-a p { padding-bottom: 24px; color: var(--muted); max-width: 60ch; }
-
-    /* Final CTA */
-    .final { padding-bottom: 96px; }
-    .final-panel { position: relative; overflow: hidden; padding: clamp(60px, 9vw, 112px) 32px; border-radius: 32px; text-align: center; color: #fff; background: var(--brand-dark); background-image: radial-gradient(ellipse 80% 90% at 0% 100%, var(--brand), transparent 70%); }
-    .final-panel .rings { position: absolute; right: -160px; top: -160px; width: 520px; opacity: .1; }
-    .final-panel h2 { position: relative; font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.05; letter-spacing: -.04em; font-weight: 800; max-width: 760px; margin: 0 auto; }
-    .final-panel h2 em { font-style: normal; color: var(--accent); }
-    .final-panel p { position: relative; margin: 20px auto 0; max-width: 500px; color: rgba(255, 255, 255, .75); font-size: 1.1rem; }
-    .final-panel .btn { position: relative; margin-top: 36px; }
-
-    /* Footer */
-    .footer { padding: 48px 0; border-top: 1px solid var(--line); }
-    .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; font-size: 14px; color: var(--muted); }
-    .footer nav { display: flex; flex-wrap: wrap; gap: 24px; }
-    .footer a:hover { color: var(--ink); }
-
-    .fab { position: fixed; right: 20px; bottom: 20px; z-index: 40; width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; background: var(--wa); color: #fff; box-shadow: 0 14px 30px -10px rgba(0, 120, 90, .6); opacity: 0; visibility: hidden; transform: translateY(14px); transition: opacity .3s, transform .3s var(--ease), visibility .3s; }
-    .fab.show { opacity: 1; visibility: visible; transform: none; }
-    .fab svg { width: 28px; height: 28px; }
-
-    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s var(--ease), transform .7s var(--ease); transition-delay: var(--d, 0ms); }
-    .reveal.in { opacity: 1; transform: none; }
-
-    @media (max-width: 960px) {
-      .nav-links { display: none; }
-      .hero-grid, .why-grid, .faq-grid { grid-template-columns: 1fr; gap: 48px; }
-      .services { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 680px) {
-      .services, .benefits { grid-template-columns: 1fr; }
-      .benefit, .benefit:nth-child(even) { padding: 28px 0; border-right: 0 !important; }
-      .steps { grid-template-columns: 1fr; gap: 36px; }
-      .steps::before { top: 22px; bottom: 22px; left: 22px; right: auto; border-top: 0; border-left: 1px dashed rgba(22, 32, 27, .2); }
-      .step { padding-left: 68px; position: relative; }
-      .step-num { position: absolute; left: 0; top: 0; }
-      .step h3 { margin-top: 8px; }
-      .hero-ctas .btn { width: 100%; }
-      .chip { display: none; }
-      .phone { height: 580px; }
-      .nav .btn-sm .label { display: none; }
-      .nav .btn-sm { width: 42px; padding: 0; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { animation: none !important; transition: none !important; }
-      .reveal { opacity: 1; transform: none; }
-    }
-  </style>
 </head>
 
 <body>
   <!-- NAV -->
   <header class="nav" id="nav">
-    <div class="container nav-inner">
-      <a href="#top" class="brand" aria-label="Ewalepay home">
-        <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#0E4F3B" /><path d="M11 10v12M11 10h10M11 16h7M11 22h5" stroke="#fff" stroke-width="2.6" stroke-linecap="round" /><circle cx="22" cy="22" r="2.6" fill="#C8F169" /></svg>
-        <span>Ewale<b>pay</b></span>
-      </a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#services">What you can do</a>
-        <a href="#how">How it works</a>
-        <a href="#why">Why Ewalepay</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-      <a class="btn btn-primary btn-sm" data-wa aria-label="Chat on WhatsApp"><i data-icon="whatsapp"></i><span class="label">Chat on WhatsApp</span></a>
+    <div class="container">
+      <div class="nav-bar">
+        <a href="#top" class="brand" aria-label="Ewalepay home">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" rx="9" fill="#0E4F3B" />
+            <path d="M11 10v12M11 10h10M11 16h7M11 22h5" stroke="#fff" stroke-width="2.6" stroke-linecap="round" />
+            <circle cx="22" cy="22" r="2.6" fill="#C8F169" />
+          </svg>
+          <span>Ewale<b>pay</b></span>
+        </a>
+        <nav class="nav-links" id="navMenu" aria-label="Primary">
+          <span class="nav-indicator" aria-hidden="true"></span>
+          <a href="#services">Services</a>
+          <a href="#how">How it works</a>
+          <a href="#why">Why Ewalepay</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="btn btn-primary btn-sm" data-wa aria-label="Chat on WhatsApp"><i data-icon="whatsapp"></i><span
+              class="label">Chat on WhatsApp</span></a>
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navMenu"
+            aria-label="Open menu"><span></span><span></span></button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -249,9 +65,11 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <span class="launch-pill reveal"><span class="tag">New</span><span class="live-dot"></span>Ewalepay is now live on WhatsApp</span>
+          <span class="launch-pill reveal"><span class="tag">New</span><span class="live-dot"></span>Ewalepay is now
+            live on WhatsApp</span>
           <h1 class="reveal" style="--d:60ms">Payments made simple. <span>Right inside WhatsApp.</span></h1>
-          <p class="lead reveal" style="--d:120ms">Buy airtime and data, pay bills and make payments in one familiar chat. No new app to download, no complicated setup. Just say hi.</p>
+          <p class="lead reveal" style="--d:120ms">Buy airtime and data, pay bills and make payments in one familiar
+            chat. No new app to download, no complicated setup. Just say hi.</p>
           <div class="hero-ctas reveal" style="--d:180ms">
             <a class="btn btn-primary" data-wa><i data-icon="whatsapp"></i>Start on WhatsApp</a>
             <a class="btn btn-ghost" href="#how">See how it works <i data-icon="arrow"></i></a>
@@ -264,19 +82,30 @@
         </div>
 
         <div class="hero-visual reveal" style="--d:150ms">
-          <div class="chip chip-a" aria-hidden="true"><span class="ic"><i data-icon="phone"></i></span><div><strong>Nothing to install</strong><span>Works in WhatsApp</span></div></div>
-          <div class="chip chip-b" aria-hidden="true"><span class="ic"><i data-icon="shield"></i></span><div><strong>Review, then confirm</strong><span>Every request</span></div></div>
+          <div class="chip chip-a" aria-hidden="true"><span class="ic"><i data-icon="phone"></i></span>
+            <div><strong>Nothing to install</strong><span>Works in WhatsApp</span></div>
+          </div>
+          <div class="chip chip-b" aria-hidden="true"><span class="ic"><i data-icon="shield"></i></span>
+            <div><strong>Review, then confirm</strong><span>Every request</span></div>
+          </div>
           <div class="phone" role="img" aria-label="A WhatsApp conversation with Ewalepay showing a menu of services">
             <div class="screen">
               <div class="status" aria-hidden="true"><span>9:41</span><span class="island"></span><span>●●●</span></div>
               <div class="wa-head">
                 <span class="back"><i data-icon="chev"></i></span>
-                <span class="avatar"><svg viewBox="0 0 32 32"><rect width="32" height="32" fill="#0E4F3B" /><path d="M12 10.5v11M12 10.5h8.5M12 16h6M12 21.5h4.5" stroke="#fff" stroke-width="2.3" stroke-linecap="round" /><circle cx="21" cy="21.5" r="2.3" fill="#C8F169" /></svg></span>
+                <span class="avatar"><svg viewBox="0 0 32 32">
+                    <rect width="32" height="32" fill="#0E4F3B" />
+                    <path d="M12 10.5v11M12 10.5h8.5M12 16h6M12 21.5h4.5" stroke="#fff" stroke-width="2.3"
+                      stroke-linecap="round" />
+                    <circle cx="21" cy="21.5" r="2.3" fill="#C8F169" />
+                  </svg></span>
                 <div class="wa-name"><strong>Ewalepay</strong><small id="waStatus">online</small></div>
                 <div class="icons"><i data-icon="video"></i><i data-icon="call"></i></div>
               </div>
               <div class="chat" id="chat"></div>
-              <div class="wa-input"><i data-icon="plus"></i><div>Message</div><i data-icon="mic"></i></div>
+              <div class="wa-input"><i data-icon="plus"></i>
+                <div>Message</div><i data-icon="mic"></i>
+              </div>
             </div>
           </div>
         </div>
@@ -289,7 +118,8 @@
         <div class="head center">
           <span class="kicker reveal">What you can do</span>
           <h2 class="h2 reveal" style="--d:60ms">Everyday payments, right where you chat.</h2>
-          <p class="sub reveal" style="--d:120ms">Everything happens in a simple conversation. Pick what you need and Ewalepay guides you step by step.</p>
+          <p class="sub reveal" style="--d:120ms">Everything happens in a simple conversation. Pick what you need and
+            Ewalepay guides you step by step.</p>
         </div>
         <div class="services" id="servicesGrid"></div>
       </div>
@@ -303,9 +133,18 @@
           <h2 class="h2 reveal" style="--d:60ms">Up and running in three steps.</h2>
         </div>
         <ol class="steps">
-          <li class="step reveal"><span class="step-num">01</span><h3>Say hi on WhatsApp</h3><p>Tap any “Chat on WhatsApp” button and send Ewalepay a message.</p></li>
-          <li class="step reveal" style="--d:100ms"><span class="step-num">02</span><h3>Choose a service</h3><p>Pick what you'd like to do from the menu Ewalepay sends you.</p></li>
-          <li class="step reveal" style="--d:200ms"><span class="step-num">03</span><h3>Review and confirm</h3><p>Check the summary, confirm, and you're done — all inside the chat.</p></li>
+          <li class="step reveal"><span class="step-num">01</span>
+            <h3>Say hi on WhatsApp</h3>
+            <p>Tap any “Chat on WhatsApp” button and send Ewalepay a message.</p>
+          </li>
+          <li class="step reveal" style="--d:100ms"><span class="step-num">02</span>
+            <h3>Choose a service</h3>
+            <p>Pick what you'd like to do from the menu Ewalepay sends you.</p>
+          </li>
+          <li class="step reveal" style="--d:200ms"><span class="step-num">03</span>
+            <h3>Review and confirm</h3>
+            <p>Check the summary, confirm, and you're done — all inside the chat.</p>
+          </li>
         </ol>
       </div>
     </section>
@@ -316,14 +155,28 @@
         <div>
           <span class="kicker reveal">Why Ewalepay</span>
           <h2 class="h2 reveal" style="--d:60ms">Less switching. More doing.</h2>
-          <p class="sub reveal" style="--d:120ms">Ewalepay brings everyday payments into the app you already use, so getting things done feels as natural as sending a message.</p>
-          <div class="reveal" style="--d:180ms; margin-top:32px"><a class="btn btn-primary" data-wa><i data-icon="whatsapp"></i>Try it now</a></div>
+          <p class="sub reveal" style="--d:120ms">Ewalepay brings everyday payments into the app you already use, so
+            getting things done feels as natural as sending a message.</p>
+          <div class="reveal" style="--d:180ms; margin-top:32px"><a class="btn btn-primary" data-wa><i
+                data-icon="whatsapp"></i>Try it now</a></div>
         </div>
         <div class="benefits">
-          <div class="benefit reveal"><i data-icon="phone" data-size="24"></i><h3>No extra app</h3><p>Use WhatsApp — nothing new to download, install or learn.</p></div>
-          <div class="benefit reveal" style="--d:80ms"><i data-icon="chat" data-size="24"></i><h3>Simple conversations</h3><p>Clear, guided steps. Reply with a tap and follow along.</p></div>
-          <div class="benefit reveal"><i data-icon="shield" data-size="24"></i><h3>Clear confirmations</h3><p>See a summary of every request before you confirm it.</p></div>
-          <div class="benefit reveal" style="--d:80ms"><i data-icon="help" data-size="24"></i><h3>Help in the same chat</h3><p>Questions about a request? Ask right where you made it.</p></div>
+          <div class="benefit reveal"><i data-icon="phone" data-size="24"></i>
+            <h3>No extra app</h3>
+            <p>Use WhatsApp — nothing new to download, install or learn.</p>
+          </div>
+          <div class="benefit reveal" style="--d:80ms"><i data-icon="chat" data-size="24"></i>
+            <h3>Simple conversations</h3>
+            <p>Clear, guided steps. Reply with a tap and follow along.</p>
+          </div>
+          <div class="benefit reveal"><i data-icon="shield" data-size="24"></i>
+            <h3>Clear confirmations</h3>
+            <p>See a summary of every request before you confirm it.</p>
+          </div>
+          <div class="benefit reveal" style="--d:80ms"><i data-icon="help" data-size="24"></i>
+            <h3>Help in the same chat</h3>
+            <p>Questions about a request? Ask right where you made it.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -344,7 +197,12 @@
     <section class="final">
       <div class="container">
         <div class="final-panel reveal">
-          <svg class="rings" viewBox="0 0 520 520" fill="none" stroke="#fff" aria-hidden="true"><circle cx="260" cy="260" r="259" /><circle cx="260" cy="260" r="200" /><circle cx="260" cy="260" r="140" /><circle cx="260" cy="260" r="80" /></svg>
+          <svg class="rings" viewBox="0 0 520 520" fill="none" stroke="#fff" aria-hidden="true">
+            <circle cx="260" cy="260" r="259" />
+            <circle cx="260" cy="260" r="200" />
+            <circle cx="260" cy="260" r="140" />
+            <circle cx="260" cy="260" r="80" />
+          </svg>
           <h2>Your WhatsApp can do more. <em>Meet Ewalepay.</em></h2>
           <p>Start a conversation today and discover a simpler way to pay.</p>
           <a class="btn btn-lime" data-wa><i data-icon="whatsapp"></i>Chat with Ewalepay on WhatsApp</a>
@@ -367,145 +225,7 @@
 
   <a class="fab" id="fab" data-wa aria-label="Chat on WhatsApp"><i data-icon="whatsapp"></i></a>
 
-  <script>
-    /* =========================================================
-       CONFIG — edit here. PLACEHOLDER values must be replaced.
-       ========================================================= */
-    const CONFIG = {
-      // PLACEHOLDER: official WhatsApp number, international format, digits only.
-      whatsappNumber: "",
-      defaultMessage: "Hi Ewalepay 👋",
-      privacyUrl: "#", // PLACEHOLDER
-      termsUrl: "#",   // PLACEHOLDER
-      // Only list services Ewalepay actually supports.
-      services: [
-        { icon: "phone", title: "Airtime & Data", text: "Top up airtime and buy data bundles in seconds.", message: "Hi Ewalepay, I'd like to buy airtime or data." },
-        { icon: "receipt", title: "Bill Payments", text: "Pay everyday bills without leaving the chat.", message: "Hi Ewalepay, I'd like to pay a bill." },
-        { icon: "swap", title: "Payments & Transfers", text: "Make payments and keep track of your transactions.", message: "Hi Ewalepay, I'd like to make a payment." },
-      ],
-      faqs: [
-        { q: "What is Ewalepay?", a: "Ewalepay is a payments assistant on WhatsApp. You chat with it to buy airtime and data, pay bills and make payments — all in one conversation." },
-        { q: "How do I get started?", a: "Tap any “Chat on WhatsApp” button on this page and send a message like “Hi”. Ewalepay will reply with the options available to you." },
-        { q: "Do I need to download an app?", a: "No. If you have WhatsApp, you already have everything you need." },
-        { q: "How do payments work?", a: "Ewalepay guides you step by step and shows a clear summary for you to review before you confirm. Available payment options are shown in the chat." },
-        { q: "How do I get support?", a: "Message us on WhatsApp and our team will help with any question about your requests." },
-      ],
-    };
-
-    (() => {
-      const $ = (s, r = document) => r.querySelector(s);
-      const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-      const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-
-      const PATHS = {
-        arrow: '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
-        check: '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>',
-        chev: '<path d="m15 18-6-6 6-6"/>',
-        phone: '<rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/>',
-        receipt: '<path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/>',
-        swap: '<path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/>',
-        shield: '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
-        chat: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
-        help: '<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>',
-        video: '<path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/>',
-        call: '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>',
-        plus: '<path d="M5 12h14"/><path d="M12 5v14"/>',
-        mic: '<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/>',
-      };
-      const WA = "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z";
-      const TICKS = '<svg width="16" height="11" viewBox="0 0 16 11" fill="currentColor"><path d="M11.07.65 10.4.06a.37.37 0 0 0-.52.03L4.84 6.26 2.58 4.13a.37.37 0 0 0-.52.01l-.6.62a.37.37 0 0 0 .01.53l3.04 2.87c.15.14.39.13.53-.02L11.1 1.17a.37.37 0 0 0-.03-.52Z"/><path d="M15.07.65 14.4.06a.37.37 0 0 0-.52.03L8.84 6.26l-.9-.85-.95 1.12 1.6 1.51c.15.14.39.13.53-.02L15.1 1.17a.37.37 0 0 0-.03-.52Z"/></svg>';
-
-      const icon = (name, size = 20) => name === "whatsapp"
-        ? `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="${WA}"/></svg>`
-        : `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${PATHS[name] || ""}</svg>`;
-      const hydrate = (root = document) => $$("[data-icon]", root).forEach((el) => { el.outerHTML = icon(el.dataset.icon, el.dataset.size || 20); });
-
-      /* Services + FAQ */
-      $("#servicesGrid").innerHTML = CONFIG.services.map((s, i) => `
-        <article class="service reveal" style="--d:${i * 80}ms">
-          <span class="ic">${icon(s.icon, 22)}</span>
-          <h3>${esc(s.title)}</h3>
-          <p>${esc(s.text)}</p>
-          <a data-wa data-wa-text="${esc(s.message)}">Try on WhatsApp ${icon("arrow", 16)}</a>
-        </article>`).join("");
-
-      $("#faqList").innerHTML = CONFIG.faqs.map((f, i) => `
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-${i}">${esc(f.q)}<span class="pm" aria-hidden="true"></span></button>
-          <div class="faq-a" id="faq-${i}" role="region"><div><p>${esc(f.a)}</p></div></div>
-        </div>`).join("");
-
-      $$(".faq-q").forEach((btn) => btn.addEventListener("click", () => {
-        const item = btn.parentElement;
-        const open = !item.classList.contains("open");
-        $$(".faq-item.open").forEach((o) => { o.classList.remove("open"); $(".faq-q", o).setAttribute("aria-expanded", "false"); });
-        item.classList.toggle("open", open);
-        btn.setAttribute("aria-expanded", String(open));
-      }));
-
-      hydrate();
-
-      /* WhatsApp links */
-      const number = CONFIG.whatsappNumber.replace(/\D/g, "");
-      if (!number) console.warn("Ewalepay: set CONFIG.whatsappNumber so WhatsApp buttons open the right chat.");
-      $$("[data-wa]").forEach((a) => {
-        a.href = `https://wa.me/${number}?text=${encodeURIComponent(a.dataset.waText || CONFIG.defaultMessage)}`;
-        a.target = "_blank";
-        a.rel = "noopener noreferrer";
-      });
-      $("#privacyLink").href = CONFIG.privacyUrl;
-      $("#termsLink").href = CONFIG.termsUrl;
-      $("#year").textContent = new Date().getFullYear();
-
-      /* Nav + floating button */
-      const nav = $("#nav"), fab = $("#fab");
-      const onScroll = () => {
-        nav.classList.toggle("scrolled", scrollY > 8);
-        fab.classList.toggle("show", scrollY > innerHeight * 0.7);
-      };
-      addEventListener("scroll", onScroll, { passive: true });
-      onScroll();
-
-      /* Reveal on scroll */
-      const io = new IntersectionObserver((entries) => entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
-      }), { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-      $$(".reveal").forEach((el) => io.observe(el));
-
-      /* Animated chat in the phone mockup (loops) */
-      const chat = $("#chat"), status = $("#waStatus");
-      const wait = (ms) => new Promise((r) => setTimeout(r, ms));
-      const time = () => new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-      const scroll = () => chat.scrollTo({ top: chat.scrollHeight, behavior: "smooth" });
-      const add = (html) => { chat.insertAdjacentHTML("beforeend", html); scroll(); return chat.lastElementChild; };
-      const out = (t) => add(`<div class="msg out">${t}<span class="meta">${time()}<span class="ticks">${TICKS}</span></span></div>`);
-      async function bot(t, ms = 1000) {
-        status.textContent = "typing…"; status.classList.add("typing");
-        const typing = add('<div class="msg in typing"><i></i><i></i><i></i></div>');
-        await wait(ms);
-        typing.remove();
-        status.textContent = "online"; status.classList.remove("typing");
-        add(`<div class="msg in">${t}<span class="meta">${time()}</span></div>`);
-      }
-      const opts = (list) => add(`<div class="opts">${list.map((o) => `<span>${o}</span>`).join("")}</div>`);
-
-      async function play() {
-        chat.innerHTML = '<div class="day">Today</div>';
-        await wait(600); out("Hi 👋");
-        await wait(500); await bot("Hello! Welcome to <strong>Ewalepay</strong> 👋<br>What would you like to do today?", 1100);
-        await wait(250); const menu = opts(["Buy airtime", "Buy data", "Pay a bill", "Make a payment"]);
-        await wait(1800); menu.children[0].classList.add("chosen"); out("Buy airtime");
-        await wait(400); await bot("Sure! Which number should I top up?");
-        await wait(1200); out("024 *** 1234");
-        await wait(400); await bot("How much airtime would you like?");
-        await wait(1000); out("20");
-        await wait(400); await bot("Please review your request:<br><br>📱 Airtime top-up<br>🔢 024 *** 1234<br>💵 Amount: 20.00<br><br>Reply <strong>YES</strong> to confirm.", 1300);
-        await wait(1500); out("YES");
-        await wait(400); await bot("✅ <strong>Done!</strong> Your request is complete. Anything else I can help with?", 1200);
-        await wait(4500); play();
-      }
-      play();
-    })();
-  </script>
+  <script type="module" src="js/main.js"></script>
 </body>
+
 </html>
