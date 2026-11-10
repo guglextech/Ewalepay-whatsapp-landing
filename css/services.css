@@ -112,22 +112,24 @@
 }
 
 .provider-list {
+  --size: clamp(28px, 4.4vw, 44px);
   list-style: none;
   margin: 0;
-  padding: 6px 0 0;
+  padding: 4px 0 0;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .provider-list li {
-  --size: clamp(34px, 7.2vw, 68px);
   width: var(--size);
   height: var(--size);
   margin-left: calc(var(--size) * -.14);
   border-radius: 50%;
   background: #fff;
-  box-shadow: 0 0 0 3px var(--bg), 0 8px 16px -10px rgba(16, 40, 30, .35);
+  box-shadow:
+    0 0 0 max(2px, calc(var(--size) * .05)) var(--bg),
+    0 6px 12px -8px rgba(16, 40, 30, .3);
   display: grid;
   place-items: center;
   overflow: hidden;
