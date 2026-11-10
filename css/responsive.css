@@ -102,8 +102,16 @@
     margin-top: 8px;
   }
 
+  .hero-launch {
+    align-items: stretch;
+  }
+
   .hero-ctas .btn {
     width: 100%;
+  }
+
+  .qr-card {
+    justify-content: flex-start;
   }
 
   .chip {
