@@ -28,9 +28,15 @@ export function playChat() {
     await wait(1200); out("024 *** 1234");
     await wait(400); await bot("How much airtime would you like?");
     await wait(1000); out("20");
-    await wait(400); await bot("Please review your request:<br><br>📱 Airtime top-up<br>🔢 024 *** 1234<br>💵 Amount: 20.00<br><br>Reply <strong>YES</strong> to confirm.", 1300);
+    await wait(400); await bot(`Please review your request.
+      <dl class="receipt">
+        <div><dt>Service</dt><dd>Airtime</dd></div>
+        <div><dt>Number</dt><dd>024 *** 1234</dd></div>
+        <div><dt>Amount</dt><dd>GHS 20.00</dd></div>
+      </dl>
+      Reply <strong>YES</strong> to confirm.`, 1300);
     await wait(1500); out("YES");
-    await wait(400); await bot("✅ <strong>Done!</strong> Your request is complete. Anything else I can help with?", 1200);
+    await wait(400); await bot("<strong>Done.</strong> Your request is complete. Anything else I can help with?", 1200);
     await wait(4500); play();
   }
   play();
