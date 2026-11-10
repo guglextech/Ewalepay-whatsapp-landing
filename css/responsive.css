@@ -125,7 +125,10 @@
   }
 
   .qr-card {
-    justify-content: flex-start;
+    left: 16px;
+    bottom: 108px;
+    width: 92px;
+    height: 92px;
   }
 
   .chip {
