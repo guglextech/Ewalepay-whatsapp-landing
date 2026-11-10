@@ -1,7 +1,34 @@
 /* Services */
-.services {
+#services {
+  padding-top: clamp(64px, 8vw, 96px);
+}
+
+.services-layout {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: minmax(280px, .85fr) 1.15fr;
+  gap: clamp(36px, 5vw, 80px);
+  align-items: center;
+}
+
+#services .head {
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+#services .h2 {
+  max-width: 11em;
+}
+
+#services .sub {
+  max-width: 36ch;
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 28px;
@@ -9,54 +36,63 @@
 }
 
 .service {
-  display: flex;
-  flex-direction: column;
-  padding: 36px;
-  box-shadow: 1px 0 0 var(--line), 0 1px 0 var(--line);
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  column-gap: 18px;
+  row-gap: 4px;
+  align-items: center;
+  padding: 26px 28px;
+  border-bottom: 1px solid var(--line);
   transition: background-color .3s;
 }
 
+.service:last-child {
+  border-bottom: 0;
+}
+
 .service:hover {
-  background: #FCFBF8;
+  background: #F7FBF8;
 }
 
 .service .ic {
+  grid-row: 1 / span 3;
   width: 48px;
   height: 48px;
-  border-radius: 14px;
+  border-radius: 16px;
   display: grid;
   place-items: center;
   background: var(--mint);
   color: var(--brand);
-  transition: background-color .3s, color .3s, transform .3s var(--ease);
+  transition: background-color .3s, color .3s;
 }
 
 .service:hover .ic {
   background: var(--brand);
   color: var(--accent);
-  transform: translateY(-3px);
 }
 
 .service h3 {
-  margin-top: 26px;
-  font-size: 19px;
+  margin-top: 0;
+  font-size: 18px;
   letter-spacing: -.02em;
+  line-height: 1.25;
 }
 
 .service p {
-  margin-top: 8px;
+  margin-top: 0;
   color: var(--muted);
-  font-size: 15px;
+  font-size: 14.5px;
+  line-height: 1.45;
 }
 
 .service a {
-  margin-top: auto;
-  padding-top: 24px;
+  margin-top: 8px;
+  padding-top: 0;
   display: inline-flex;
   align-items: center;
   gap: 6px;
   font-weight: 600;
-  font-size: 14.5px;
+  font-size: 14px;
   color: var(--brand);
 }
 
@@ -69,7 +105,7 @@
 }
 
 .providers {
-  margin-bottom: 48px;
+  margin-bottom: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;

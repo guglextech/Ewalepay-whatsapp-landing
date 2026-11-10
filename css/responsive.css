@@ -55,8 +55,22 @@
     gap: 48px;
   }
 
-  .services {
-    grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 720px) {
+  .services-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  #services .head {
+    align-items: center;
+    text-align: center;
+  }
+
+  #services .h2,
+  #services .sub {
+    max-width: 36rem;
   }
 }
 
